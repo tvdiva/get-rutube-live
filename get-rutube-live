@@ -1,0 +1,2 @@
+#!/bin/bash
+curl -s $(curl -s "https://rutube.ru/api/play/options/$1" | jq -r ".live_streams.hls[] | .url") | grep $2 | sed 's/https/http/g'
